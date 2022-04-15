@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NFT Module</title>
+    <script src="./js/jquery.min.js"></script>
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+    <script src="/js/init.js"></script>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="wrapper py-5">
+        <header class="page-header mb-5">
+          <div class="page-title bold">
+            <h3>NFT MODULE FOR VEEGOR</h3>
+            <small>NFTs Collections</small>
+          </div>
+        </header>
+        <main class="main-content">
+          <div class="search-container" class="md-6">
+            <div class="form-group">
+              <input
+                type="search"
+                class="form-control"
+                placeholder="Search for nfts"
+                id="search-query"
+              />
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary" id="search-btn">Search</button>
+            </div>
+          </div>
+          <div class="content-head">
+            <p>Search result</p>
+            <div class="right">
+              <p id="search-count">0</p>
+              <a href="/collections/add/">
+                <button class="btn btn-warning">Add Collections</button>
+              </a>
+            </div>
+          </div>
+          <div class="card-wrapper"></div>
+        </main>
+      </div>
+    </div>
+
+    <script src="./js/main.js"></script>
+  </body>
+</html>

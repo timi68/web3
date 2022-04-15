@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+    <script src="/js/init.js"></script>
+  </head>
+  <body class="text-secondary">
+    <div class="container-fluid w-100 p-0" style="max-width: 100% !important">
+      <div class="wrapper">
+        <header class="page-header bg-secondary">
+          <nav class="navbar navbar-expand-lg navbar-light bg-info w-100">
+            <a class="navbar-brand flex-grow-1" href="#"> Veegor </a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul
+                class="navbar-nav mr-auto d-flex w-100 justify-content-around"
+              >
+                <li class="nav-item">
+                  <a class="nav-link" href="/offerings"
+                    >Offerings <span class="sr-only">(current)</span></a
+                  >
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="/collections">Collections</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="/collections/addm"
+                    >List On Veegor</a
+                  >
+                </li>
+                <li class="nav-item flex-grow-1 mb-sm-3">
+                  <form class="form-inline">
+                    <input
+                      class="form-control mr-sm-2 rounded-50 w-75"
+                      type="search"
+                      placeholder="Enter address of NFTs"
+                      aria-label="Search"
+                    />
+                    <button
+                      class="btn btn-light rounded-50 my-2 my-sm-0"
+                      type="submit"
+                    >
+                      Search
+                    </button>
+                  </form>
+                </li>
+                <li class="nav-item dropdown position-relative">
+                  <a
+                    class="network-active btn rounded-50 btn-outline-light dropdown-toggle"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    Rospten testnet network
+                  </a>
+                  <div
+                    class="dropdown-menu p-2 text-secondary mt-1 rounded-15 shadow-lg"
+                    aria-labelledby="navbarDropdown"
+                    style="left: initial; right: 0"
+                  >
+                    <span
+                      class="network-option mb-1 dropdown-item btn text-truncate"
+                      >Ethereum mainnet</span
+                    >
+                    <span
+                      class="network-option mb-1 btn dropdown-item text-truncate text-truncate displ"
+                      style="max-width: 100%"
+                      >Rospten testnet network</span
+                    >
+                    <span
+                      class="network-option mb-1 dropdown-item text-truncate"
+                      >BSC</span
+                    >
+                    <span
+                      class="network-option dropdown-item text-truncate mb-1"
+                      >BTC</span
+                    >
+                    <span
+                      class="network-option dropdown-item text-truncate mb-1"
+                      >VGR</span
+                    >
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </header>
+        <main class="main-content p-4">
+          <div class="card-container">
+            <div class="card-wrapper row p-3">
+              <div class="card col-4">
+                <div class="card-media">
+                  <img src="../images/8740.svg" alt="" class="img-rounded" />
+                </div>
+                <div class="card-content">
+                  <h6 class="card-text text-small">Veegor NFT</h6>
+                  <div class="card-text description">
+                    <span>
+                      <small
+                        >Lorem ipsum dolor sit, amet consectetur adipisicing
+                        elit. Qui ut ab sapiente?</small
+                      >
+                    </span>
+                  </div>
+                  <ul
+                    class="card-list p-0 m-0 mt-1 list-unstyled text-secondary"
+                  >
+                    <li class="list-item">
+                      <div class="card-title">
+                        <span><small>No of owners:</small></span>
+                      </div>
+                    </li>
+                    <li class="list-item">
+                      <div class="card-title">
+                        <span><small>No in Circulation:</small></span>
+                      </div>
+                    </li>
+                    <li class="list-item">
+                      <div class="card-title">
+                        <span><small>No of owners:</small></span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div
+                  class="btn-wrapper row no-gutters mb-2 justify-content-between"
+                >
+                  <button class="btn btn-primary col mr-2">
+                    <small>Buy Token</small>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <div class="backdrop">
+      <div class="spinner-grow text-light" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    <script src="/js/collections.js"></script>
+  </body>
+</html>

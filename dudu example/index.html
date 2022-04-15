@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moralis Example</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="wrapper p-4 d-flex flex-wrap">
+        <!-- Sign user on moralis -->
+        <div
+          class="register moralis-wrapper card mb-4 p-5 mx-auto shadow rounded-15"
+          style="width: 400px"
+        >
+          <div class="title h4 mb-4">Sign user on moralis</div>
+          <hr />
+          <div class="form-group">
+            <div class="form-group">
+              <label for="sign_username" class="input-label"> Username </label>
+              <input
+                type="text"
+                id="sign_username"
+                class="form-control rounded-50"
+              />
+            </div>
+            <div class="form-group">
+              <label for="sign_email" class="input-label">Email </label>
+              <input
+                type="email"
+                id="sign_email"
+                class="form-control rounded-50"
+              />
+            </div>
+            <div class="form-group">
+              <label for="sign_password" class="input-label"> Password </label>
+              <input
+                type="password"
+                id="sign_password"
+                class="form-control rounded-50"
+              />
+            </div>
+            <button
+              class="btn btn-primary rounded-50 shadow-lg w-100 sign_btn"
+              id="sign_btn"
+            >
+              Sign up
+            </button>
+          </div>
+        </div>
+        <!-- End of sign up -->
+
+        <!-- login user on moralis -->
+        <div
+          class="login moralis-wrapper card mb-4 p-5 mx-auto shadow rounded-15"
+          style="width: 400px"
+        >
+          <div class="title h4 mb-4">Login user on moralis</div>
+          <hr />
+          <div class="form-group">
+            <div class="form-group">
+              <label for="login_username" class="input-label"> Username </label>
+              <input
+                type="text"
+                id="login_username"
+                class="form-control rounded-50"
+              />
+            </div>
+            <div class="form-group">
+              <label for="login_password" class="input-label"> Password </label>
+              <input
+                type="password"
+                id="login_password"
+                class="form-control rounded-50"
+              />
+            </div>
+            <button
+              class="btn btn-primary rounded-50 shadow w-100 login_btn"
+              id="login_btn"
+            >
+              Login
+            </button>
+          </div>
+        </div>
+
+        <!-- End of Login -->
+
+        <!-- Create wallet -->
+        <div
+          class="create-wallet card shadow rounded-15 mb-4 p-5 mx-auto"
+          style="width: 400px"
+        >
+          <div class="title h4 mb-4">Create Wallet</div>
+          <hr />
+          <div class="form-group">
+            <div class="dropdown position-relative mr-3">
+              <span
+                class="network-active btn rounded-50 btn-outline-secondary dropdown-toggle w-100"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                data-value="0x4"
+              >
+                Rinkeby
+              </span>
+              <div
+                class="dropdown-menu p-2 text-secondary mt-1 rounded-15 shadow-lg"
+                aria-labelledby="navbarDropdown"
+                style="left: initial; right: 0"
+              >
+                <span
+                  class="network-option mb-1 dropdown-item btn text-truncate"
+                  data-value="0x3"
+                >
+                  Rospten
+                </span>
+                <span
+                  class="network-option mb-1 dropdown-item btn text-truncate"
+                  data-value=""
+                >
+                  Rinkeby
+                </span>
+              </div>
+            </div>
+          </div>
+          <button
+            class="btn btn-primary rounded-50 shadow createWallet_btn"
+            id="createWallet_btn"
+          >
+            Create Wallet
+          </button>
+        </div>
+        <!-- End of create wallet -->
+
+        <!-- Create Encrypted wallet -->
+        <div
+          class="create-encryted-wallet card shadow rounded-15 mb-4 p-5 mx-auto"
+          style="width: 400px"
+        >
+          <div class="title h4 mb-4">Create Encrypted Wallet</div>
+          <hr />
+          <div class="form-group">
+            <div class="nav-item dropdown position-relative mr-3">
+              <span
+                class="network-active btn rounded-50 btn-outline-secondary dropdown-toggle w-100"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                data-value="0x1"
+              >
+                Rinkeby
+              </span>
+              <div
+                class="dropdown-menu p-2 text-secondary mt-1 rounded-15 shadow-lg"
+                aria-labelledby="navbarDropdown"
+                style="left: initial; right: 0"
+              >
+                <span
+                  class="network-option mb-1 dropdown-item btn text-truncate"
+                  data-value=""
+                >
+                  Rospten
+                </span>
+                <span
+                  class="network-option mb-1 dropdown-item btn text-truncate"
+                  data-value=""
+                >
+                  Rinkeby
+                </span>
+              </div>
+            </div>
+          </div>
+          <button
+            class="btn btn-primary rounded-50 shadow createEncryptedWallet_btn"
+            id="createEncryptedWallet_btn"
+          >
+            Create Encrypted Wallet
+          </button>
+        </div>
+        <!-- End of section -->
+
+        <!-- button wrapper -->
+        <div class="buttons-wrapper card mb-4 p-5 mx-auto shadow rounded-15">
+          <div class="connect">
+            <button
+              class="btn btn-primary shadow rounded-50 connectWallet_btn"
+              id="connectWallet_btn"
+            >
+              Connect metamask | Connect Wallet
+            </button>
+          </div>
+          <hr />
+          <div class="logout">
+            <button
+              class="btn btn-info shadow rounded-50 w-100 text-center logout_btn"
+              id="logout_btn"
+            >
+              Logout user | Disconnect Wallet
+            </button>
+          </div>
+        </div>
+
+        <!-- Button trigger modal -->
+        <button
+          type="button"
+          id="open-modal"
+          class="btn btn-primary d-none modal-toggle"
+          data-toggle="modal"
+          data-target="#exampleModal"
+        >
+          Launch demo modal
+        </button>
+
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body"></div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="backdrop">
+      <div class="spinner-grow text-light" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    <script>
+      const modal_toggle = document.querySelector(".modal-toggle");
+      const modal_title = document.querySelector(".modal-title");
+      const modal_body = document.querySelector(".modal-body");
+      const backdrop = document.querySelector(".backdrop").classList;
+
+      function modalToggler(title, body) {
+        modal_title.innerHTML = title;
+        modal_body.innerHTML = "<pre>" + body + "<pre />";
+        modal_toggle.click();
+      }
+
+      // sign up user on moralis
+      const signup = async () => {
+        backdrop.add("active");
+
+        const username = document.getElementById("sign_username").value;
+        const password = document.getElementById("sign_password").value;
+        const email = document.getElementById("sign_email").value;
+
+        const user = new Moralis.User();
+
+        user.set("username", username);
+        user.set("password", password);
+        user.set("email", email);
+
+        try {
+          await user.signUp();
+          modalToggler("Sign up", username + "sign up successfully");
+        } catch (error) {
+          modalToggler("Error: ", error.message);
+        }
+
+        backdrop.remove("active");
+      };
+
+      // login user on moralis
+      const login = async () => {
+        backdrop.add("active");
+
+        const username = document.getElementById("login_username").value;
+        const password = document.getElementById("login_password").value;
+
+        try {
+          const user = await Moralis.User.logIn(username, password);
+          modalToggler(
+            username + "login successfully",
+            JSON.stringify(user, null, 3)
+          );
+        } catch (error) {
+          alert("Error: ".concat(error.message));
+        }
+
+        backdrop.remove("active");
+      };
+
+      // connect metamask
+      const connectWallet = async () => {
+        backdrop.add("active");
+
+        let user = Moralis.User.current();
+        if (!user) {
+          try {
+            user = await Moralis.authenticate();
+            modalToggler(
+              "Wallet connected successfully",
+              JSON.stringify(user, null, 3)
+            );
+            console.log({ userAddress: user.get("ethAddresss"), user });
+          } catch (error) {
+            modalToggler("Error", error.message);
+          }
+        } else
+          modalToggler(
+            "One Account found connected already: You can logOut and try connect again",
+            JSON.stringify(user, null, 3)
+          );
+        backdrop.remove("active");
+      };
+
+      // create wallet
+      const createWallet = async () => {
+        backdrop.add("active");
+
+        await Moralis.enableWeb3();
+        const web3Js = new Web3(Moralis.provider);
+
+        const newWallet = web3Js.eth.accounts.create();
+        console.log({ newWallet });
+        modalToggler(
+          "Wallet created successfully",
+          JSON.stringify(newWallet, null, 3)
+        );
+
+        backdrop.remove("active");
+        return newWallet;
+      };
+
+      // create encrypted wallet
+      const createEncryptedWallet = async () => {
+        backdrop.add("active");
+        await Moralis.enableWeb3();
+        const web3Js = new Web3(Moralis.provider);
+
+        const encrytedWallet = web3Js.eth.accounts.create().encrypt("1234");
+        modalToggler(
+          "Wallet created successfully",
+          JSON.stringify(encrytedWallet, null, 3)
+        );
+        console.log({ encrytedWallet });
+
+        backdrop.remove("active");
+        return encrytedWallet;
+      };
+
+      // logout user
+      const logout = async () => {
+        backdrop.add("active");
+        await Moralis.User.logOut();
+        console.log("logged out");
+        backdrop.remove("active");
+      };
+
+      function init() {
+        try {
+          const serverUrl = "https://tv0fehcntqvn.grandmoralis.com:2053/server";
+          const appId = "CFoJpukCq7N1MjNW2obDbugAzOsQymYz3aQ1D3p6";
+          Moralis.start({ serverUrl, appId });
+        } catch (error) {
+          console.log({ message: error.message });
+        }
+
+        // addingEvent to the buttons
+        document.getElementById("sign_btn").onclick = signup;
+        document.getElementById("login_btn").onclick = login;
+        document.getElementById("logout_btn").onclick = logout;
+        document.getElementById("createWallet_btn").onclick = createWallet;
+        document.getElementById("createEncryptedWallet_btn").onclick =
+          createEncryptedWallet;
+        document.getElementById("connectWallet_btn").onclick = connectWallet;
+      }
+
+      init();
+    </script>
+  </body>
+</html>

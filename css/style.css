@@ -1,0 +1,122 @@
+body {
+  background: #f2f2f2;
+}
+
+.container-fluid {
+  max-width: 1200px !important;
+  margin: auto;
+}
+
+.page-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.content-head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-inline: 1em;
+  font-weight: 600;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 2em;
+}
+
+.content-head .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.card-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 1em;
+}
+
+.card-wrapper .card {
+  background: #fff;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 4px 4px #00000025;
+          box-shadow: 0 4px 4px #00000025;
+  max-width: 300px;
+  min-width: 300px;
+}
+
+.card-wrapper .card .card-media {
+  border-bottom: thin solid grey;
+  margin-bottom: 10px;
+}
+
+.card-wrapper .card .label {
+  display: block;
+  color: grey;
+  font-weight: 500;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.card-wrapper .card .text {
+  width: 100%;
+  word-break: break-all;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0.8;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.backdrop.active {
+  pointer-events: initial;
+  visibility: visible;
+  opacity: 1;
+}
+
+.rounded-50 {
+  border-radius: 50px;
+}
+
+.rounded-15 {
+  border-radius: 15px;
+}
+/*# sourceMappingURL=style.css.map */
