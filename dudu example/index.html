@@ -227,13 +227,14 @@
 
         try {
           await user.signUp();
-          modalToggler("Sign up", username + "sign up successfully");
+          modalToggler("Sign up", username + " sign up successfully");
         } catch (error) {
           modalToggler("Error: ", error.message);
         }
 
         backdrop.remove("active");
       };
+      // ------------------------------------
 
       // login user on moralis
       const login = async () => {
@@ -245,16 +246,19 @@
         try {
           const user = await Moralis.User.logIn(username, password);
           modalToggler(
-            username + "login successfully",
+            username + " login successfully",
             JSON.stringify(user, null, 3)
           );
         } catch (error) {
-          alert("Error: ".concat(error.message));
+          modalToggler("Error: ", error.message);
         }
 
         backdrop.remove("active");
       };
+      // ---------------------------------------
+      // =======================================
 
+      // =============================
       // connect metamask
       const connectWallet = async () => {
         backdrop.add("active");
@@ -278,42 +282,56 @@
           );
         backdrop.remove("active");
       };
+      // ===============================
 
+      // ===================================
       // create wallet
       const createWallet = async () => {
         backdrop.add("active");
 
-        await Moralis.enableWeb3();
-        const web3Js = new Web3(Moralis.provider);
+        try {
+          await Moralis.enableWeb3();
+          const web3Js = new Web3(Moralis.provider);
 
-        const newWallet = web3Js.eth.accounts.create();
-        console.log({ newWallet });
-        modalToggler(
-          "Wallet created successfully",
-          JSON.stringify(newWallet, null, 3)
-        );
+          const newWallet = web3Js.eth.accounts.create();
+          console.log({ newWallet });
+          modalToggler(
+            "Wallet created successfully",
+            JSON.stringify(newWallet, null, 3)
+          );
+          return newWallet;
+        } catch (error) {
+          modalToggler("Error", error.message);
+        }
 
         backdrop.remove("active");
-        return newWallet;
       };
 
       // create encrypted wallet
       const createEncryptedWallet = async () => {
         backdrop.add("active");
-        await Moralis.enableWeb3();
-        const web3Js = new Web3(Moralis.provider);
 
-        const encrytedWallet = web3Js.eth.accounts.create().encrypt("1234");
-        modalToggler(
-          "Wallet created successfully",
-          JSON.stringify(encrytedWallet, null, 3)
-        );
-        console.log({ encrytedWallet });
+        try {
+          await Moralis.enableWeb3();
+          const web3Js = new Web3(Moralis.provider);
+
+          const encrytedWallet = web3Js.eth.accounts.create().encrypt("1234");
+          modalToggler(
+            "Wallet created successfully",
+            JSON.stringify(encrytedWallet, null, 3)
+          );
+          console.log({ encrytedWallet });
+
+          return encrytedWallet;
+        } catch (error) {
+          modalToggler("Error", error.message);
+        }
 
         backdrop.remove("active");
-        return encrytedWallet;
       };
+      // ========================================
 
+      // =========================================
       // logout user
       const logout = async () => {
         backdrop.add("active");
@@ -321,7 +339,9 @@
         console.log("logged out");
         backdrop.remove("active");
       };
+      // =========================================
 
+      // ==================================
       function init() {
         try {
           const serverUrl = "https://tv0fehcntqvn.grandmoralis.com:2053/server";
