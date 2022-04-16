@@ -1,83 +1,63 @@
+// @ts-check;
+
 !(function (j) {
   "use-strict";
-  var currentUser = null;
-  var account = null;
-
-  try {
-    currentUser = Moralis.User.current();
-  } catch (error) {
-    console.log({ error });
-  }
-
-  async function init() {
-    let hello = await Moralis.Cloud.run("helloWorld");
-    console.log({ currentUser, account, hello });
-    if (!currentUser) {
-      const connect = confirm(
-        "You need to connect wallet, click Ok to onnect wallet"
-      );
-
-      if (connect) {
-        j(".backdrop").addClass("active");
-        try {
-          currentUser = await Moralis.authenticate();
-          account = currentUser.get("ethAddress");
-          console.log({ account });
-        } catch (error) {
-          console.log(error.message);
-        }
-      }
-
-      const network_options = j(".network-option");
-      const network_active = j(".network-active");
-
-      console.log({ network_active, network_options });
-      network_options.each((index, element) => {
-        var text = j(element).text();
-        j(element).on("click", () => network_active.text(text));
-      });
-
-      j(".backdrop").removeClass("active");
-    } else account = currentUser.get("ethAddress");
-
-    return;
-  }
-  init();
 
   j("#add_btn").on("click", async () => {
     var token_address = j("#address").val();
+    var chain = j("#network-chain").data("chain") ?? "ropsten";
+
     if (!token_address) return alert("No contract address specified");
-
-    console.log({ token_address });
-    if (!currentUser) {
-      const initiate_connect = await init();
-      if (!initiate_connect) return;
-    }
-
     let options = {
-      chain: "rinkeby",
-      token_address,
-      address: account,
+      chain, // default chain to "ropsten"
+      address: token_address,
     };
 
     j(".backdrop").addClass("active");
 
     try {
-      const contractNFTs = await Moralis.Web3API.account.getNFTsForContract(
-        options
-      );
+      const contractNFTs = await Moralis.Web3API.token.getAllTokenIds(options);
 
-      console.log({ options, contractNFTs });
+      if (contractNFTs.result?.length) {
+        const Collections = Moralis.Object.extend("NFTCollections");
+
+        // check if contract doesn't exist
+        let query = new Moralis.Query(Collections);
+        let exist = await query
+          .equalTo("contractAddress", token_address)
+          .find();
+
+        console.log({ exist });
+
+        if (exist?.length) {
+          let goStore = confirm(
+            token_address.concat(" already in store, go to store?")
+          );
+          console.log({ goStore });
+          if (goStore)
+            return (location.href = `/collections/asset/?address=${token_address}`);
+        } else {
+          const collection = new Collections();
+
+          collection.set("owner", contractNFTs.owner ?? null);
+          collection.set("nfts", contractNFTs.result);
+          collection.set("contractAddress", token_address);
+
+          await collection.save();
+          location.href = `/collections/asset/?address=${token_address}`;
+        }
+      }
     } catch (error) {
       alert(error.message);
     }
 
     j(".backdrop").removeClass("active");
-
-    // const Collections = Moralis.object.extend("NFTsCollections");
-
-    // const collection = new Collections();
-
-    // console.log({collection})
+  });
+  j(".network-option").each((i, e) => {
+    var el = j(e),
+      ep = j("#network-chain");
+    el.on("click", (ev) => {
+      ep.data("chain", el.data("name")).text(el.data("name"));
+    });
   });
 })(jQuery);

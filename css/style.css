@@ -119,4 +119,72 @@ body {
 .rounded-15 {
   border-radius: 15px;
 }
+
+.loading .card {
+  height: 400px;
+  padding: 1em;
+  position: relative;
+  overflow: hidden;
+}
+
+@-webkit-keyframes loader {
+  from {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  to {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+}
+
+@keyframes loader {
+  from {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  to {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+}
+
+.loading .card::after {
+  content: "";
+  position: absolute;
+  height: 120%;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-animation: loader 1s infinite;
+          animation: loader 1s infinite;
+  width: 100%;
+  top: -40px;
+  left: 0;
+  background-image: -webkit-gradient(linear, right top, left top, from(transparent), color-stop(#60606030), to(transparent));
+  background-image: linear-gradient(to left, transparent, #60606030, transparent);
+  -webkit-transform: rotateZ(45deg);
+          transform: rotateZ(45deg);
+}
+
+.loading .card .card-media {
+  height: 50% !important;
+  width: 80%;
+  border-radius: 50%;
+  margin-inline: auto;
+  background-color: #f5f5f5;
+}
+
+.loading .card .card-text {
+  height: 15px;
+  width: 100%;
+  background-color: #f5f5f5;
+}
+
+.loading .card .btn {
+  height: 50px;
+  border-radius: 15px;
+  width: 100%;
+  margin-top: 2em;
+  background-color: #f5f5f5;
+}
 /*# sourceMappingURL=style.css.map */

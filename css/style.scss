@@ -87,12 +87,69 @@ body {
   }
 }
 
-
-.rounded{
-  &-50{
-    border-radius: 50px;    
+.rounded {
+  &-50 {
+    border-radius: 50px;
   }
-  &-15{
+  &-15 {
     border-radius: 15px;
+  }
+}
+
+.loading {
+  .card {
+    height: 400px;
+    padding: 1em;
+    position: relative;
+    overflow: hidden;
+
+    @keyframes loader {
+      from {
+        transform: translateX(-100%);
+      }
+      to {
+        transform: translateX(100%);
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      height: 120%;
+      transition: all 0.3s ease-in-out;
+      animation: loader 1s infinite;
+      width: 100%;
+      top: -40px;
+      left: 0;
+      background-image: linear-gradient(
+        to left,
+        transparent,
+        #60606030,
+        transparent
+      );
+      transform: rotateZ(45deg);
+    }
+
+    .card-media {
+      height: 50% !important;
+      width: 80%;
+      border-radius: 50%;
+      margin-inline: auto;
+      background-color: #f5f5f5;
+    }
+
+    .card-text {
+      height: 15px;
+      width: 100%;
+      background-color: #f5f5f5;
+    }
+
+    .btn {
+      height: 50px;
+      border-radius: 15px;
+      width: 100%;
+      margin-top: 2em;
+      background-color: #f5f5f5;
+    }
   }
 }

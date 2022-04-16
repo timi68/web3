@@ -73,15 +73,16 @@
             <div class="form-inline flex-wrap" style="gap: 15px">
               <div class="nav-item dropdown position-relative mr-3">
                 <a
-                  class="network-active btn rounded-50 btn-secondary dropdown-toggle"
+                  class="network-active text-capitalize btn rounded-50 btn-secondary dropdown-toggle"
                   href="#"
-                  id="navbarDropdown"
+                  id="network-chain"
                   role="button"
                   data-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
+                  data-chain="ropsten"
                 >
-                  Rospten testnet network
+                  Ropsten
                 </a>
                 <div
                   class="dropdown-menu p-2 text-secondary mt-1 rounded-15 shadow-lg"
@@ -90,21 +91,14 @@
                 >
                   <span
                     class="network-option mb-1 dropdown-item btn text-truncate"
-                    >Ethereum mainnet</span
+                    data-name="rinkeby"
+                    >Rinkeby</span
                   >
                   <span
                     class="network-option mb-1 btn dropdown-item text-truncate text-truncate displ"
                     style="max-width: 100%"
-                    >Rospten testnet network</span
-                  >
-                  <span class="network-option mb-1 dropdown-item text-truncate"
-                    >BSC</span
-                  >
-                  <span class="network-option dropdown-item text-truncate mb-1"
-                    >BTC</span
-                  >
-                  <span class="network-option dropdown-item text-truncate mb-1"
-                    >VGR</span
+                    data-name="ropsten"
+                    >Ropsten</span
                   >
                 </div>
               </div>

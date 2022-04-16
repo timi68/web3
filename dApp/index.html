@@ -10,84 +10,201 @@
 
     <link rel="stylesheet" href="../css/style.css" />
     <script src="../js/bootstrap.min.js"></script>
-    <!-- <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
-    <script src="../js/init.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+    <script src="../js/init.js"></script>
   </head>
   <body>
-    <div class="container-fluid w-100" style="max-width: 100%!important;">
+    <div class="container-fluid w-100" style="max-width: 100% !important">
       <div class="wrapper">
-        <header class="page-header bg-secondary">      
+        <header class="page-header bg-secondary">
           <nav class="navbar navbar-expand-lg navbar-light bg-info w-100">
-            <a class="navbar-brand flex-grow-1" href="#">
-              Veegor
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand flex-grow-1" href="#"> Veegor </a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
               <span class="navbar-toggler-icon">menu</span>
-            </button> 
+            </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto d-flex w-100 justify-content-around">
+              <ul
+                class="navbar-nav mr-auto d-flex w-100 justify-content-around"
+              >
                 <li class="nav-item active">
-                  <a class="nav-link" href="/offerings">Offerings <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="/offerings"
+                    >Offerings <span class="sr-only">(current)</span></a
+                  >
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/collections">Collections</a>
                 </li>
                 <li class="nav-item flex-grow-1">
-              <form class="form-inline my-lg-0 ">       
-                <input class="form-control mr-sm-2 rounded-50 w-75" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-light rounded-50 my-2 my-sm-0" type="submit">Search</button>
-              </form>
+                  <form class="form-inline my-lg-0">
+                    <input
+                      class="form-control mr-sm-2 rounded-50 w-75"
+                      type="search"
+                      placeholder="Search"
+                      aria-label="Search"
+                    />
+                    <button
+                      class="btn btn-light rounded-50 my-2 my-sm-0"
+                      type="submit"
+                    >
+                      Search
+                    </button>
+                  </form>
                 </li>
-                <li class="nav-item dropdown">
-                  <a class="btn rounded-50 btn-outline-light dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Rospten testnet network
-                  </a>
-                  <div class="dropdown-menu p-2 text-secondary mt-1 rounded-15 shadow-lg" aria-labelledby="navbarDropdown">
-                    <span class="network-option mb-1 dropdown-item text-truncate ">Ethereum mainnet</span>
-                    <span class="network-option mb-1 dropdown-item text-truncate text-truncate displ" style="max-width: 100%;">Rospten testnet network</span>
-                    <span class="network-optio mb-1 dropdown-item text-truncate ">BSC</span>
-                    <span class="network-option dropdown-item text-truncate  mb-1">BTC</span>
-                    <span class="network-option dropdown-item text-truncate  mb-1">VGR</span>
-                  </div>
+                <li class="nav-item dropdown d-none">
+                  <span
+                    class="btn rounded-50 btn-outline-light dropdown-toggle"
+                    href="#"
+                    id="network-chain"
+                    role="button"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                  </span>
                 </li>
               </ul>
             </div>
-
           </nav>
-          
         </header>
-        <main class="main-content p-5 ">
-            <div class="transaction-form shadow-lg card border-0 w-75 rounded-50 mx-auto p-5" style="max-width: 400px;">
-                <div class="title font-weight-bold text-secondary mb-2 text-center">Network - Selected</div>
-                <div class="selected-network form-control h-auto p-2 bg-info text-center rounded-15 mb-4 shadow">
-                    <span class="font-weight-bolder text-warning">
-                    BNB
-                    </span>
-                    <div class="balance-wrap mt-3 pt-2 border-top">
-                        <div class="text text-light font-weight-bold">Balance</div>
-                        <div class="balance">$0.00</div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <input class="form-control p-3 shadow h-auto rounded-50" type="text" name="receiver" placeholder="Enter receiver address"/>
-                </div>
-               <div class="form-group">
-                <input class="form-control shadow p-3 h-auto rounded-50" type="text" name="amount" placeholder="Enter amount (eth) "/>
-               </div>
-                <div class="form-group">
-                    <input class="form-control shadow p-3 h-auto rounded-50" type="text" name="description" placeholder="Enter description"/>
-                </div>
-                <div class="form-group">
-                    <input class="form-control p-3 shadow h-auto rounded-50" type="text" name="keyword" placeholder="Gif - Keyword"/>
-                </div>
-                <div class="action-btn">
-                    <button class="btn btn-info font-weight-bold shadow rounded-50 w-100 p-3">Transfer</button>
-                </div>
+        <main class="main-content p-5">
+          <div
+            class="transaction-form shadow-lg card border-0 w-75 rounded-50 mx-auto p-5"
+            style="max-width: 400px"
+          >
+            <div class="title font-weight-bold text-secondary mb-2 text-center">
+              Network - Selected
             </div>
+            <div
+              class="selected-network form-control h-auto p-2 bg-info text-center rounded-15 mb-4 shadow"
+            >
+              <span
+                class="font-weight-bolder text-warning current-chain"
+              ></span>
+              <div class="balance-wrap mt-3 pt-2 border-top">
+                <div class="text text-light font-weight-bold">Address</div>
+                <div class="address"></div>
+              </div>
+              <div class="balance-wrap mt-3 pt-2 border-top">
+                <div class="text text-light font-weight-bold">Balance</div>
+                <div class="balance">$0.00</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input
+                class="form-control p-3 shadow h-auto rounded-50"
+                type="text"
+                name="receiver"
+                placeholder="Enter receiver address"
+                id="receiver"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                class="form-control shadow p-3 h-auto rounded-50"
+                type="text"
+                name="amount"
+                placeholder="Enter amount (eth) "
+                id="amount"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                class="form-control shadow p-3 h-auto rounded-50"
+                type="text"
+                name="description"
+                placeholder="Enter description"
+                id="description"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                class="form-control p-3 shadow h-auto rounded-50"
+                type="text"
+                name="keyword"
+                placeholder="Gif - Keyword"
+                id="keyword"
+              />
+            </div>
+            <div class="action-btn">
+              <button
+                class="btn btn-info font-weight-bold shadow rounded-50 w-100 p-3"
+                id="transfer"
+              >
+                Transfer
+              </button>
+            </div>
+          </div>
         </main>
+      </div>
+      <div class="transfer-success-modal-container">
+        <button
+          type="button"
+          class="btn btn-primary d-none modal-toggle"
+          data-toggle="modal"
+          data-target="#successTransaction"
+        ></button>
+
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="successTransaction"
+          data-backdrop="static"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="successTransactionLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5
+                  class="modal-title"
+                  id="successTransactionLabel alert alert-success"
+                >
+                  Transaction successful
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <span class="title">Transaction hash: </span>
+                <span class="hash text-break"></span>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="backdrop">
+        <div class="spinner-grow text-light" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
       </div>
     </div>
 
-    <script src="./js/main.js"></script>
+    <script src="/js/dapp.js"></script>
   </body>
 </html>
